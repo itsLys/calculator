@@ -13,9 +13,18 @@ let secondNum = "";
 let currentOperator = null;
 let shouldReset = false;
 
+equalBtn.addEventListener("click", () => evaluate());
+clearBtn.addEventListener("click", () => clear());
+pointBtn.addEventListener("click", () => appendPoint());
+delBtn.addEventListener("click", () => del());
+
 numbers.forEach((number) => {
   number.addEventListener("click", () => appendNumber(number.textContent));
 });
+
+operators.forEach((operator) =>
+  operator.addEventListener("click", () => setOperation(operator.textContent))
+);
 
 function appendNumber(number) {
   if (display.textContent === "0" || shouldReset) reset();
@@ -27,8 +36,6 @@ function reset() {
   display.textContent = "";
 }
 
-clearBtn.addEventListener("click", () => clear());
-
 function clear() {
   firstNum = "";
   secondNum = "";
@@ -36,21 +43,16 @@ function clear() {
   display.textContent = "0";
   lastDisplay.textContent = "";
 }
-pointBtn.addEventListener("click", () => appendPoint());
+
 function appendPoint() {
   if (display.textContent === "") display.textContent = "0";
   if (display.textContent.includes(".")) return;
   display.textContent += ".";
 }
-delBtn.addEventListener("click", () => del());
 
 function del() {
   display.textContent = display.textContent.toString().slice(0, -1);
 }
-
-operators.forEach((operator) =>
-  operator.addEventListener("click", () => setOperation(operator.textContent))
-);
 
 function setOperation(operator) {
   if (currentOperator !== null) evaluate();
@@ -58,11 +60,7 @@ function setOperation(operator) {
   lastDisplay.textContent = `${display.textContent} ${operator}`;
   reset();
   currentOperator = operator;
-
-  // currentOperator = operator;
-  // display.textContent += operator;
 }
-equalBtn.addEventListener("click", () => evaluate());
 
 function evaluate() {
   if (currentOperator === null) return;
