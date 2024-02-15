@@ -20,18 +20,17 @@ body {
   text-align: right;
   color: white;
 }
+
 .display {
-  padding: 1rem;
-}
-.calculation {
-  font-weight: 500;
-  color: rgb(154, 154, 154);
-  font-size: 0.85rem;
-  height: 1.5rem;
-}
-.result {
   font-size: 2.5rem;
-  height: 1em;
+  min-height: 5.5rem;
+  overflow-wrap: break-word;
+  background-color: inherit;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 1rem;
+  text-align: right;
 }
 .buttons {
   display: flex;
