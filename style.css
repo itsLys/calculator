@@ -19,6 +19,7 @@ body {
   width: 18.25rem;
   text-align: right;
   color: white;
+  box-shadow: 1px 1px black;
 }
 
 .display {
@@ -29,6 +30,18 @@ body {
   width: 100%;
   border: none;
   color: white;
+  padding: 1rem;
+  text-align: right;
+}
+.last-display {
+  font-size: 1rem;
+  font-weight: 400;
+  min-height: 3.5rem;
+  overflow-wrap: break-word;
+  background-color: inherit;
+  width: 100%;
+  border: none;
+  color: rgb(110, 110, 110);
   padding: 1rem;
   text-align: right;
 }
@@ -50,11 +63,16 @@ body {
 }
 button.big-btn {
   flex-basis: calc(50% - 0.1rem);
+  background-color: hsl(0, 0%, 5%);
 }
-button.operator {
-  background-color: rgb(20, 20, 20);
+button.function {
+  background-color: hsl(0, 0%, 8%);
 }
-button.operator.equal {
+button.operator,
+button.op {
+  background-color: hsl(0, 0%, 8%);
+}
+button#equal {
   background-color: hsl(0, 0%, 18%);
 }
 .buttons > button:hover {
